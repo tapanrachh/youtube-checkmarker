@@ -1,30 +1,19 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Youtube Checkmaker",
   "version": "1.0",
   "description": "Save youtube videos with timestamp as bookmark",
-  "permissions": [
-    "contextMenus",
-    "tabs",
-    "bookmarks"
-  ],
+  "permissions": ["contextMenus", "tabs", "bookmarks"],
   "background": {
-    "persistent": false,
-    "scripts": [
-      "js/background.js"
-    ]
+    "service_worker": "js/background.js"
   },
   "content_scripts": [
     {
-      "matches": [
-        "<all_urls>"
-      ],
-      "js": [
-        "js/content.js"
-      ]
+      "matches": ["<all_urls>"],
+      "js": ["js/content.js"]
     }
   ],
-  "browser_action": {
+  "action": {
     "default_icon": "images/icon.png",
     "default_popup": "popup.html"
   },
